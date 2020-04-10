@@ -30,9 +30,13 @@ public class Controller {
 	}
 
 	public void run() {
+		try {
 			OutputView.printFunctions();
 			int number = parseInteger(InputView.inputFunctionNumber());
 			function.get(number).accept(tables);
+		} catch (IllegalArgumentException e) {
+			OutputView.printError(e.getMessage());
+		}
 	}
 
 	private void order(Tables tables) {
