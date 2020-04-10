@@ -1,5 +1,6 @@
 package domain;
 
+import static domain.MenuFixture.*;
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -18,14 +19,14 @@ class OrderedMenusTest {
 	@DisplayName("주문 성공")
 	void order_Success() {
 		orderedMenus.put(MenuRepository.menus().get(1), 99);
-		assertThat(orderedMenus.toMap()).contains(entry(MenuRepository.menus().get(1), 99));
+		assertThat(orderedMenus.toMap()).contains(entry(FRIED, 99));
 	}
 
 	@Test
 	@DisplayName("한번에 99개 넘게 주문한 경우")
 	void order_Fail_When_orderOver99InOnce() {
 		assertThatIllegalArgumentException()
-			.isThrownBy(() -> orderedMenus.put(MenuRepository.menus().get(1), 100))
+			.isThrownBy(() -> orderedMenus.put(FRIED, 100))
 			.withMessage("테이블 당 한 가지 메뉴는 99개가 최대입니다.");
 	}
 
@@ -34,7 +35,7 @@ class OrderedMenusTest {
 	void order_Fail_When_totalOrderOver99() {
 		orderedMenus.put(MenuRepository.menus().get(1), 98);
 		assertThatIllegalArgumentException()
-			.isThrownBy(() -> orderedMenus.put(MenuRepository.menus().get(1), 2))
+			.isThrownBy(() -> orderedMenus.put(FRIED, 2))
 			.withMessage("테이블 당 한 가지 메뉴는 99개가 최대입니다.");
 	}
 }

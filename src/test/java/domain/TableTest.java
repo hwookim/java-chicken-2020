@@ -1,5 +1,6 @@
 package domain;
 
+import static domain.MenuFixture.*;
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
@@ -12,7 +13,7 @@ class TableTest {
 		Table table = new Table(1);
 		assertThat(table.isOrdered()).isFalse();
 
-		table.order(MenuRepository.menus().get(1), 10);
+		table.order(FRIED, 10);
 		assertThat(table.isOrdered()).isTrue();
 	}
 }
