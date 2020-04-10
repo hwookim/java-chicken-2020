@@ -18,8 +18,8 @@ class OrderedMenusTest {
 	@Test
 	@DisplayName("주문 성공")
 	void order_Success() {
-		orderedMenus.put(MenuRepository.menus().get(1), 99);
-		assertThat(orderedMenus.toMap()).contains(entry(FRIED, 99));
+		orderedMenus.put(FRIED, 99);
+		assertThat(orderedMenus.toMap().get(FRIED)).isEqualTo(99);
 	}
 
 	@Test
