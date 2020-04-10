@@ -17,6 +17,7 @@ public class OutputView {
 		System.out.println("1- 주문등록");
 		System.out.println("2- 결제하기");
 		System.out.println("3- 프로그램 종료");
+		System.out.println();
 	}
 
 	public static void printTables(final List<Table> tables) {
@@ -74,5 +75,10 @@ public class OutputView {
 		Menu menu = entry.getKey();
 		int count = entry.getValue();
 		System.out.println(String.format("%s %d %d", menu.getName(), count, menu.getPrice()));
+	}
+
+	public static void printCost(int cost) {
+		System.out.println("## 최종 결제할 금액");
+		System.out.println(String.format("%d원", cost));
 	}
 }

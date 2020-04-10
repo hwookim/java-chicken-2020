@@ -7,6 +7,7 @@ import java.util.function.Consumer;
 
 import domain.Menu;
 import domain.MenuRepository;
+import domain.Payment;
 import domain.Table;
 import view.InputView;
 import view.OutputView;
@@ -30,17 +31,14 @@ public class Controller {
 	}
 
 	public void run() {
-		try {
+			OutputView.printFunctions();
 			int number = parseInteger(InputView.inputFunctionNumber());
 			function.get(number).accept(tables);
-		} catch (IllegalArgumentException e) {
-			OutputView.printError(e.getMessage());
-		}
 	}
 
 	private void order(List<Table> tables) {
 		OutputView.printTables(tables);
-		int tableNumber = parseInteger(InputView.inputTableNumber());
+		int tableNumber = parseInteger(InputView.inputTableNumber()) - 1;
 
 		OutputView.printMenus(MenuRepository.menus());
 		int menuNumber = parseInteger(InputView.inputMenuNumber()) - 1;
@@ -51,10 +49,15 @@ public class Controller {
 
 	private void pay(List<Table> tables) {
 		OutputView.printTables(tables);
-		int tableNumber = parseInteger(InputView.inputTableNumber());
+		int tableNumber = parseInteger(InputView.inputTableNumber()) - 1;
 		Table table = tables.get(tableNumber);
 
 		OutputView.printOrderedMenus(table.getOrderedMenus().toMap());
+
+		int paymentNumber = parseInteger(InputView.inputPaymentNumber(tableNumber + 1));
+		Payment payment = Payment.of(paymentNumber);
+
+		OutputView.printCost(table.calculateCost(payment));
 
 		table.pay();
 	}

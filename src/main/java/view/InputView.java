@@ -24,4 +24,10 @@ public class InputView {
 		System.out.println("## 메뉴의 수량을 입력하세요.");
 		return scanner.nextLine();
 	}
+
+	public static String inputPaymentNumber(int table) {
+		System.out.println(String.format("## %d번 테이블의 결제를 진행합니다.", table));
+		System.out.println("## 신용카드는 1번, 현금은 2번");
+		return scanner.nextLine();
+	}
 }
