@@ -22,11 +22,19 @@ public class Table {
         return number.toString();
     }
 
-    public int calculateCost() {
-        return orderedMenus.calculateCost() - discountChicken();
+    public int calculateCost(Payment payment) {
+        int cost = orderedMenus.calculateCost();
+        return discountCash(payment, cost - discountChicken());
     }
 
     private int discountChicken() {
         return orderedMenus.countChicken() / 10 * 10_000;
+    }
+
+    private int discountCash(Payment payment, int cost) {
+        if (Payment.CARD.equals(payment)) {
+            return cost;
+        }
+        return cost - (int)(cost * 0.05);
     }
 }

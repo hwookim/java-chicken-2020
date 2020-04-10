@@ -30,6 +30,23 @@ class TableTest {
 		table.order(FRIED, 4);
 		table.order(SEASONED, 6);
 
-		assertThat(table.calculateCost()).isEqualTo(150_000);
+		assertThat(table.calculateCost(Payment.CARD)).isEqualTo(150_000);
+	}
+
+	@Test
+	@DisplayName("현금 결제 시 5% 할인")
+	void calculateCost_When_PayCash() {
+		table.order(FRIED, 1);
+
+		assertThat(table.calculateCost(Payment.CASH)).isEqualTo(15_200);
+	}
+
+	@Test
+	@DisplayName("치킨 10마리 현금결제")
+	void calculateCost_When_ApplyAllDiscount() {
+		table.order(FRIED, 4);
+		table.order(SEASONED, 6);
+
+		assertThat(table.calculateCost(Payment.CASH)).isEqualTo(142_500);
 	}
 }
