@@ -31,10 +31,6 @@ public class OrderedMenus {
 		return menus.isEmpty();
 	}
 
-	public Map<Menu, Integer> toMap() {
-		return Collections.unmodifiableMap(menus);
-	}
-
 	public int calculateCost() {
 		return menus.entrySet()
 			.stream()
@@ -52,5 +48,9 @@ public class OrderedMenus {
 
 	public void clear() {
 		menus.clear();
+	}
+
+	public Map<Menu, Integer> toMap() {
+		return Collections.unmodifiableMap(menus);
 	}
 }
