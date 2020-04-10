@@ -12,6 +12,9 @@ import view.InputView;
 import view.OutputView;
 
 public class Controller {
+	private static final int ORDER = 1;
+	private static final int PAY = 2;
+	private static final int EXIT = 3;
 	private final Map<Integer, Consumer<Tables>> function = new HashMap<>();
 
 	private final Tables tables;
@@ -24,9 +27,9 @@ public class Controller {
 	}
 
 	private void setFunctions() {
-		function.put(1, this::order);
-		function.put(2, this::pay);
-		function.put(3, this::exit);
+		function.put(ORDER, this::order);
+		function.put(PAY, this::pay);
+		function.put(EXIT, this::exit);
 	}
 
 	public void run() {
@@ -44,7 +47,7 @@ public class Controller {
 		int tableNumber = parseInteger(InputView.inputTableNumber());
 
 		OutputView.printMenus(menus.toList());
-		int menuNumber = parseInteger(InputView.inputMenuNumber()) - 1;
+		int menuNumber = parseInteger(InputView.inputMenuNumber());
 		int menuCount = parseInteger(InputView.inputMenuCount());
 
 		tables.get(tableNumber).order(menus.get(menuNumber), menuCount);

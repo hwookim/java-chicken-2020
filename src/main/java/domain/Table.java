@@ -1,6 +1,10 @@
 package domain;
 
 public class Table {
+	private static final int CHICKEN_PIVOT = 10;
+	private static final int CHICKEN_DISCOUNT = 10_000;
+	private static final double CASH_DISCOUNT_RATE = 0.05;
+
 	private final TableNumber number;
 	private final OrderedMenus orderedMenus;
 
@@ -23,14 +27,14 @@ public class Table {
 	}
 
 	private int discountChicken() {
-		return orderedMenus.countChicken() / 10 * 10_000;
+		return orderedMenus.countChicken() / CHICKEN_PIVOT * CHICKEN_DISCOUNT;
 	}
 
 	private int discountCash(Payment payment, int cost) {
 		if (Payment.CARD.equals(payment)) {
 			return cost;
 		}
-		return cost - (int)(cost * 0.05);
+		return cost - (int)(cost * CASH_DISCOUNT_RATE);
 	}
 
 	public void pay() {
