@@ -34,4 +34,11 @@ public class OrderedMenus {
 	public Map<Menu, Integer> toMap() {
 		return Collections.unmodifiableMap(menus);
 	}
+
+	public int calculateCost() {
+		return menus.entrySet()
+			.stream()
+			.mapToInt(entry -> entry.getKey().getPrice() * entry.getValue())
+			.sum();
+	}
 }
