@@ -37,4 +37,8 @@ public class Table {
         }
         return cost - (int)(cost * 0.05);
     }
+
+    public void pay() {
+        orderedMenus.clear();
+    }
 }

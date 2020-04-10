@@ -49,4 +49,15 @@ class TableTest {
 
 		assertThat(table.calculateCost(Payment.CASH)).isEqualTo(142_500);
 	}
+
+	@Test
+	@DisplayName("결제 후 주문 내역 초기화")
+	void pay() {
+		table.order(FRIED, 1);
+		table.order(CIDER, 2);
+		assertThat(table.isOrdered()).isTrue();
+
+		table.pay();
+		assertThat(table.isOrdered()).isFalse();
+	}
 }

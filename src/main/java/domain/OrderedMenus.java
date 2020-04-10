@@ -49,4 +49,8 @@ public class OrderedMenus {
 			.mapToInt(Map.Entry::getValue)
 			.sum();
 	}
+
+	public void clear() {
+		menus.clear();
+	}
 }
