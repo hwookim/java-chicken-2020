@@ -1,12 +1,10 @@
 package controller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import domain.Menu;
-import domain.MenuRepository;
+import domain.Menus;
 import domain.Payment;
 import domain.Table;
 import domain.Tables;
@@ -17,9 +15,9 @@ public class Controller {
 	private final Map<Integer, Consumer<Tables>> function = new HashMap<>();
 
 	private final Tables tables;
-	private final List<Menu> menus;
+	private final Menus menus;
 
-	public Controller(Tables tables, List<Menu> menus) {
+	public Controller(Tables tables, Menus menus) {
 		this.tables = tables;
 		this.menus = menus;
 		setFunctions();
@@ -41,7 +39,7 @@ public class Controller {
 		OutputView.printTables(tables.toList());
 		int tableNumber = parseInteger(InputView.inputTableNumber());
 
-		OutputView.printMenus(MenuRepository.menus());
+		OutputView.printMenus(menus.toList());
 		int menuNumber = parseInteger(InputView.inputMenuNumber()) - 1;
 		int menuCount = parseInteger(InputView.inputMenuCount());
 
