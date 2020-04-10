@@ -21,6 +21,7 @@ public class OutputView {
 	}
 
 	public static void printTables(final List<Table> tables) {
+		System.out.println();
 		System.out.println("## 테이블 목록");
 		final int size = tables.size();
 		printLine(TOP_LINE, size);
@@ -58,17 +59,13 @@ public class OutputView {
 		}
 	}
 
-	public static void printError(String errorMessage) {
-		System.out.println(errorMessage);
-		System.out.println("초기화면으로 돌아갑니다.");
-		System.out.println();
-	}
-
 	public static void printOrderedMenus(Map<Menu, Integer> orderedMenus) {
+		System.out.println();
 		System.out.println("## 주문내역");
 		System.out.println("메뉴 수량 금액");
 		orderedMenus.entrySet()
 			.forEach(OutputView::printOrderedMenu);
+		System.out.println();
 	}
 
 	private static void printOrderedMenu(Map.Entry<Menu, Integer> entry) {
@@ -78,7 +75,16 @@ public class OutputView {
 	}
 
 	public static void printCost(int cost) {
+		System.out.println();
 		System.out.println("## 최종 결제할 금액");
 		System.out.println(String.format("%d원", cost));
+		System.out.println();
+	}
+
+	public static void printError(String errorMessage) {
+		System.out.println();
+		System.out.println("## " + errorMessage);
+		System.out.println("초기화면으로 돌아갑니다.");
+		System.out.println();
 	}
 }

@@ -58,6 +58,10 @@ public class Controller {
 		int tableNumber = parseInteger(InputView.inputTableNumber());
 		Table table = tables.get(tableNumber);
 
+		if (!table.isOrdered()) {
+			throw new IllegalArgumentException("주문이 없는 테이블입니다.");
+		}
+
 		OutputView.printOrderedMenus(table.getOrderedMenus().toMap());
 
 		int paymentNumber = parseInteger(InputView.inputPaymentNumber(tableNumber));
