@@ -16,7 +16,7 @@ class TableNumberTest {
 	}
 
 	@ParameterizedTest
-	@DisplayName("테이블 번호 생성 테스트 실")
+	@DisplayName("테이블 번호 생성 테스트 실패")
 	@ValueSource(ints = {0, 9})
 	void create_Fail(int input) {
 		assertThatIllegalArgumentException()
