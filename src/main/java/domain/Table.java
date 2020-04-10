@@ -37,6 +37,10 @@ public class Table {
 		orderedMenus.clear();
 	}
 
+	public OrderedMenus getOrderedMenus() {
+		return orderedMenus;
+	}
+
 	@Override
 	public String toString() {
 		return number.toString();

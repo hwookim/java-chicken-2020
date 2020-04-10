@@ -1,6 +1,7 @@
 package view;
 
 import java.util.List;
+import java.util.Map;
 
 import domain.Menu;
 import domain.Table;
@@ -62,8 +63,16 @@ public class OutputView {
 		System.out.println();
 	}
 
-	public static void printOrderedMenu(Table table) {
+	public static void printOrderedMenus(Map<Menu, Integer> orderedMenus) {
 		System.out.println("## 주문내역");
 		System.out.println("메뉴 수량 금액");
+		orderedMenus.entrySet()
+			.forEach(OutputView::printOrderedMenu);
+	}
+
+	private static void printOrderedMenu(Map.Entry<Menu, Integer> entry) {
+		Menu menu = entry.getKey();
+		int count = entry.getValue();
+		System.out.println(String.format("%s %d %d", menu.getName(), count, menu.getPrice()));
 	}
 }

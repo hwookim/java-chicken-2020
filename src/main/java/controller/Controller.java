@@ -54,7 +54,7 @@ public class Controller {
 		int tableNumber = parseInteger(InputView.inputTableNumber());
 		Table table = tables.get(tableNumber);
 
-		OutputView.printOrderedMenu(table);
+		OutputView.printOrderedMenus(table.getOrderedMenus().toMap());
 
 		table.pay();
 	}
