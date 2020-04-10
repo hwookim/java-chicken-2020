@@ -41,4 +41,12 @@ public class OrderedMenus {
 			.mapToInt(entry -> entry.getKey().getPrice() * entry.getValue())
 			.sum();
 	}
+
+	public int countChicken() {
+		return menus.entrySet()
+			.stream()
+			.filter(entry -> Category.CHICKEN.equals(entry.getKey().getCategory()))
+			.mapToInt(Map.Entry::getValue)
+			.sum();
+	}
 }

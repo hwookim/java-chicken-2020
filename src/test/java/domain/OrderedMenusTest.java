@@ -48,4 +48,14 @@ class OrderedMenusTest {
 
 		assertThat(orderedMenus.calculateCost()).isEqualTo(49_000);
 	}
+
+	@Test
+	@DisplayName("치킨 카테고리의 메뉴 수")
+	void countChicken() {
+		orderedMenus.put(FRIED, 10);
+		orderedMenus.put(SEASONED, 2);
+		orderedMenus.put(CIDER, 3);
+
+		assertThat(orderedMenus.countChicken()).isEqualTo(12);
+	}
 }
