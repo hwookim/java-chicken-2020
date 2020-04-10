@@ -41,6 +41,10 @@ public class Table {
 		return orderedMenus;
 	}
 
+	public int getTableNumber() {
+		return number.getTableNumber();
+	}
+
 	@Override
 	public String toString() {
 		return number.toString();
