@@ -9,6 +9,14 @@ public class Table {
         this.orderedMenus = new OrderedMenus();
     }
 
+    public void order(final Menu menu, final int count) {
+        orderedMenus.put(menu, count);
+    }
+
+    public boolean isOrdered() {
+        return !orderedMenus.isEmpty();
+    }
+
     @Override
     public String toString() {
         return number.toString();

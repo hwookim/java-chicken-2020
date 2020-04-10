@@ -27,6 +27,10 @@ public class OrderedMenus {
 		}
 	}
 
+	public boolean isEmpty() {
+		return menus.isEmpty();
+	}
+
 	public Map<Menu, Integer> toMap() {
 		return Collections.unmodifiableMap(menus);
 	}
