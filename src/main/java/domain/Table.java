@@ -21,4 +21,12 @@ public class Table {
     public String toString() {
         return number.toString();
     }
+
+    public int calculateCost() {
+        return orderedMenus.calculateCost() - discountChicken();
+    }
+
+    private int discountChicken() {
+        return orderedMenus.countChicken() / 10 * 10_000;
+    }
 }
