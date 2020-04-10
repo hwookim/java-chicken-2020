@@ -37,12 +37,12 @@ public class Table {
 		orderedMenus.clear();
 	}
 
-	public OrderedMenus getOrderedMenus() {
-		return orderedMenus;
-	}
-
 	public int getTableNumber() {
 		return number.getTableNumber();
+	}
+
+	public OrderedMenus getOrderedMenus() {
+		return orderedMenus;
 	}
 
 	@Override

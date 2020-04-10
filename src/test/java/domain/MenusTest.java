@@ -24,14 +24,14 @@ class MenusTest {
 
 	@ParameterizedTest
 	@DisplayName("번호에 따른 메뉴 구하기")
-	@ValueSource(ints = {1, 2, 3, 4, 5, 6, 8})
+	@ValueSource(ints = {1, 2, 3, 4, 5, 6, 21, 22})
 	void get_Success(int number) {
 		assertThat(menus.get(number).getNumber()).isEqualTo(number);
 	}
 
 	@ParameterizedTest
 	@DisplayName("없는 메뉴 구해서 실패")
-	@ValueSource(ints = {0, 7, 9})
+	@ValueSource(ints = {0, 7, 20})
 	void get_Fail(int number) {
 		assertThatIllegalArgumentException()
 			.isThrownBy(() -> menus.get(number))

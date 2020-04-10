@@ -16,25 +16,25 @@ class TablesTest {
 		tables = new Tables(TableRepository.tables());
 	}
 
+	@Test
+	@DisplayName("생성 확인")
+	void toList() {
+		assertThat(tables.toList()).containsAll(TableRepository.tables());
+	}
+
 	@ParameterizedTest
 	@DisplayName("번호에 따른 테이블 구하기")
-	@ValueSource(ints = {1, 2, 3, 4, 5, 6, 8})
+	@ValueSource(ints = {1, 2, 3, 5, 6, 8})
 	void get_Success(int number) {
 		assertThat(tables.get(number).getTableNumber()).isEqualTo(number);
 	}
 
 	@ParameterizedTest
 	@DisplayName("없는 테이블 구해서 실패")
-	@ValueSource(ints = {0, 7, 9})
+	@ValueSource(ints = {0, 4, 7, 9})
 	void get_Fail(int number) {
 		assertThatIllegalArgumentException()
 			.isThrownBy(() -> tables.get(number))
 			.withMessage("잘못된 테이블 번호입니다.");
-	}
-
-	@Test
-	@DisplayName("생성 확인")
-	void toList() {
-		assertThat(tables.toList()).containsAll(TableRepository.tables());
 	}
 }
