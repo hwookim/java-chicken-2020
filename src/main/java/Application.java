@@ -1,8 +1,8 @@
 import controller.Controller;
-import domain.MenuRepository;
-import domain.Menus;
-import domain.TableRepository;
-import domain.Tables;
+import domain.menu.MenuRepository;
+import domain.menu.Menus;
+import domain.table.TableRepository;
+import domain.table.Tables;
 
 public class Application {
 	public static void main(String[] args) {

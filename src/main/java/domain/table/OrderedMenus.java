@@ -1,5 +1,7 @@
-package domain;
+package domain.table;
 
+import domain.menu.Category;
+import domain.menu.Menu;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;

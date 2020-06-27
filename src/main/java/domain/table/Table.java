@@ -1,4 +1,7 @@
-package domain;
+package domain.table;
+
+import domain.Payment;
+import domain.menu.Menu;
 
 public class Table {
 	private static final int CHICKEN_PIVOT = 10;

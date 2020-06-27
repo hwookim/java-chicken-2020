@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import domain.Menus;
+import domain.menu.Menus;
 import domain.Payment;
-import domain.Table;
-import domain.Tables;
+import domain.table.Table;
+import domain.table.Tables;
 import view.InputView;
 import view.OutputView;
 
